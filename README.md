@@ -97,3 +97,10 @@ func structToMap2(data interface{}) map[string]interface{} {
 	return result
 }
 ```
+
+### 実行結果
+
+```
+structToMap:  map[id:1 name:book_name]
+structToMap2:  map[id:1 name:book_name tagid:2 tagname:tag_name2]
+```
