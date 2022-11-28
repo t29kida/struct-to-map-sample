@@ -43,14 +43,6 @@ func main() {
 				TagID:   2,
 				TagName: "tag_name2",
 			},
-			{
-				TagID:   3,
-				TagName: "tag_name3",
-			},
-			{
-				TagID:   4,
-				TagName: "tag_name4",
-			},
 		},
 	}
 	map2 := structToMap2(&b2)
@@ -87,7 +79,7 @@ func structToMap2(data interface{}) map[string]interface{} {
 			for j := 0; j < sliceValue.Len(); j++ {
 				elem2 := sliceValue.Index(j)
 				for k := 0; k < elem2.NumField(); k++ {
-					field2 := strings.ToLower(elem2.Type().Field(k).Name) + fmt.Sprintf("%d", j+1)
+					field2 := strings.ToLower(elem2.Type().Field(k).Name)
 					value2 := elem2.Field(k).Interface()
 
 					result[field2] = value2
@@ -95,9 +87,7 @@ func structToMap2(data interface{}) map[string]interface{} {
 			}
 			continue
 		}
-
 		result[field] = value
 	}
-
 	return result
 }
